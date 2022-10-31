@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,20 +53,20 @@ public class MovieController {
     }
 
     @GetMapping("/movies/get-all-movies")
-    public ResponseEntity<ArrayList> findAllMovies(){
+    public ResponseEntity<List> findAllMovies(){
 
-        ArrayList<String> listOfMovies = new ArrayList<>();
+        List<String> listOfMovies = new ArrayList<String>();
 
         for(Movie movies: movie.values()){
             listOfMovies.add(movies.getName());
         }
-        return new ResponseEntity<ArrayList>(listOfMovies,HttpStatus.OK);
+        return new ResponseEntity<List>(listOfMovies,HttpStatus.OK);
     }
 
     @GetMapping("/movies/get-movie-by-name/{name}")
-    public ResponseEntity<ArrayList> getMoviesByDirectorName(@PathVariable String dir_name){
+    public ResponseEntity<List> getMoviesByDirectorName(@PathVariable String dir_name){
 
-        ArrayList<String> moviesByDir = new ArrayList<>();
+        List<String> moviesByDir = new ArrayList<String>();
 
         for(Map.Entry<String,String> e:pair.entrySet()){
             if (e.getValue().equals(dir_name)) {
@@ -73,7 +74,7 @@ public class MovieController {
             }
         }
 
-        return new ResponseEntity<ArrayList>(moviesByDir,HttpStatus.OK);
+        return new ResponseEntity<List>(moviesByDir,HttpStatus.OK);
     }
 
     @DeleteMapping("/movies/delete-director-by-name")

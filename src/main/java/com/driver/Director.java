@@ -19,20 +19,20 @@ public class Director {
         return name;
     }
 
-    public int getNumberOfMovies() {
-        return numberOfMovies;
-    }
-
-    public double getImdbRating() {
-        return imdbRating;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
+    public int getNumberOfMovies() {
+        return numberOfMovies;
+    }
+
     public void setNumberOfMovies(int numberOfMovies) {
         this.numberOfMovies = numberOfMovies;
+    }
+
+    public double getImdbRating() {
+        return imdbRating;
     }
 
     public void setImdbRating(double imdbRating) {
